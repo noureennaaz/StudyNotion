@@ -33,7 +33,9 @@ async function MailSend(email, otp){
 }
 OTPModel.pre( "save", async function (doc, next){
     try {
-        await MailSend(doc.email, doc.otp)
+        const mail=`<p>The otp is ${doc.otp}</p>`
+        const subject='Verify your email'
+        await MailSend(doc.email,subject,  mail)
 
     } catch ( err ){
         console.log("error occured while Sending the mail")

@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 require('dotenv').config()
-async function SendMail( email, otp ){
+async function SendMail( email,subject , body){
 
     const transporter = nodemailer.createTransport({
         host: process.env.MAIL_HOST,
@@ -13,9 +13,9 @@ async function SendMail( email, otp ){
       const info = await transporter.sendMail({
         from: '"Study Notion " ', 
         to: email, // list of receivers
-        subject: "Verify your mail", // Subject line
-        text: "Hello world?", // plain text body
-        html: `<p>The otp is ${otp}</p>`, // html body
+        subject: subject, 
+        text: "Hello world?", 
+        html: `${body}`, 
       });
 
       module.exports= SendMail
