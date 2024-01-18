@@ -2,12 +2,12 @@ const mongoose=require('mongoose')
 
 const CategorySchema = mongoose.Schema(
     {
-        CategoryName:{
+        name:{
             type:String,
             required:true,
             trim:true
         },
-        CategoryDesc:{
+        description:{
             type:String,
             trim:true
         },
